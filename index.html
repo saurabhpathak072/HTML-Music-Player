@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="backgroundColor">
+    <header>
+      <div class="textAlignRight">
+        <label class="switch">
+          <input id="checkDarkmode" type="checkbox" />
+          <span class="slider round">
+            <span class="on">Dark</span>
+            <span class="off">Light</span>
+          </span>
+        </label>
+      </div>
+      <h1 id="title" class="textAligncenter">Music Player</h1>
+    </header>
+    <main class="mainContainer">
+      <div class="songContainer">
+        <div class="cardContainer">
+          <div class="filterContainer">
+            <h2>
+              <label for="genre"> Filter by Genre : </label>
+              <select name="genre" id="genre">
+                <option value="0">Select Genre</option>
+              </select>
+            </h2>
+            
+          </div>
+          <h2>All Songs</h2>
+         <div id="songList" class="songList">
+
+         </div>
+        </div>
+        <div class="cardContainer">
+          <div class="songCard">
+            <div id="imageContainer">
+              <img width="100%" id="songImage"  src="https://samplesongs.netlify.app/album-arts/death-bed.jpg" alt="Default" />
+            </div>
+            <h2 id="songName">Death Bed</h2>
+            <h3 id="artist">Powfu</h3>
+          </div>
+          <div id="audioContainer" class="audioContainer">
+            <audio controls>
+              <source src="https://samplesongs.netlify.app/Bad%20Liar.mp3" type="audio/ogg" />
+              <source src="https://samplesongs.netlify.app/Bad%20Liar.mp3" type="audio/mpeg" />
+              Your browser does not support the audio tag.
+            </audio>
+          </div>
+          <div id="controlContainer" class="controlContainer">
+            Play list Controls
+          </div>
+        </div>
+        <div class="cardContainer">PlayList</div>
+      </div>
+    </main>
+    <footer></footer>
+    <script src="./index.js"></script>
+  </body>
+</html>

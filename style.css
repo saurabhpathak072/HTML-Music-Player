@@ -1,0 +1,197 @@
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 120px;
+    height: 34px;
+  }
+  
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 24px;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(60px);
+    -ms-transform: translateX(60px);
+    transform: translateX(60px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+.backgroundColor{
+    background-color: #f5f5f5;
+}
+
+.textAligncenter{
+    text-align: center;
+}
+
+.textAlignRight{
+    text-align: right;
+}
+
+
+.on
+{
+  display: none;
+}
+
+.on, .off
+{
+  color: white;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  top: 50%;
+  left: 50%;
+  font-size: 10px;
+  font-family: Verdana, sans-serif;
+}
+
+input:checked+ .slider .on
+{display: block;}
+
+input:checked + .slider .off
+{display: none;}
+
+.mainContainer{
+  margin: 10px;
+  padding: 5px;
+}
+
+.songContainer{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+}
+
+.cardContainer{
+  border: 1px solid black;
+  margin: 5px;
+  padding: 10px;
+  min-height: 80vh;
+  background-color: #69B7DD;
+}
+
+/* .cardContainer h2{
+
+  margin: 0 10px;
+  padding: 0 10px;
+} */
+
+.cardContainer .filterContainer{
+  margin:  10px;
+  padding: 10px;
+}
+
+.cardContainer .songCard {
+  
+}
+
+.songItem{
+  color: white;
+  list-style: none;
+
+}
+.songItem .songItemList{
+  font-size: large;
+  padding: 0.67rem 5px;
+  margin: 0.75rem 0;
+  background-color: #0781BC;
+  display: inline-block;
+  border-radius: 8px;
+}
+
+.songCard{
+  background-color: #0673AA;
+  padding: 0.75rem;
+  margin: 0.67rem 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border: 2px solid #6A74AF;
+}
+
+.controlContainer{
+  display: flex;
+  justify-content: space-around;
+  margin: 1rem 0.75rem;
+}
+
+.controlContainer .buttonControls{
+  background-color: #8F5AFD;
+  padding: 0.85rem 1rem ;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.buttonControls button{
+  outline: none;
+  border: none;
+}
+
+.audioClass{
+  width: 100%;
+}
+
+.darkbackgroundColor{
+  background-color: #565657;
+}
+
+.darkbackgroundColor .textAligncenter{
+  color: #fff;
+}
+
+.darkbackgroundColor .cardContainer{
+  background-color: #253237;
+  color: #fff;
+}
+
+.darkbackgroundColor .songItem .songItemList{
+  background-color: #63696D;
+}
+
+.darkbackgroundColor .cardContainer .songCard {
+  background-color: #63696D;
+  box-shadow: 0 4px 8px 0 #0673AA, 0 6px 20px 0  #0673AA;
+}
+
+
