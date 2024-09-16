@@ -51,7 +51,9 @@ const dataJSON = [
 
 document.addEventListener("DOMContentLoaded", function () {
   console.log(dataJSON);
-    const songList = [...dataJSON]
+    const songList = [...dataJSON];
+    const userPlayList = {};
+    let selectedPlaylist = null;
   const bodyElement = document.getElementsByTagName('body');
   const genreElement = document.getElementById("genre");
   const songListElement = document.getElementById("songList");
@@ -61,6 +63,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const audioContainerElement = document.getElementById("audioContainer");
   const checkDarkmodeElement = document.getElementById("checkDarkmode");
   const controlContainerElement = document.getElementById("controlContainer");
+  const newPlaylistElement = document.getElementById("newPlaylist");
+  const newPlaylistBtnElement = document.getElementById("newPlaylistBtn");
+  const allPlaylistElement = document.getElementById("allPlaylist");
+  const currentPlaylistElement = document.getElementById("currentPlaylist");
 
   checkDarkmodeElement.addEventListener('click',function(event){
     console.log(this.checked)
@@ -129,7 +135,19 @@ document.addEventListener("DOMContentLoaded", function () {
     nextButtom.textContent = '=>';
     nextButtom.disabled = !nextSong;
     nextButtom.classList.add('buttonControls');
-    controlContainerElement.append(nextButtom)
+    controlContainerElement.append(nextButtom);
+
+    addToPlayListButtom.addEventListener('click',function () {
+      if(!!selectedPlaylist){
+
+        userPlayList[selectedPlaylist] = [...userPlayList[selectedPlaylist],song];
+        renderUserCurrentPlayList(selectedPlaylist, userPlayList)
+      }else{
+        alert("Playlist not selecteds");
+     
+      }
+
+    })
 
     prevButtom.addEventListener('click',function(){
         loadSongTile(prevSong, songList, {autoplay:true});
@@ -138,6 +156,78 @@ document.addEventListener("DOMContentLoaded", function () {
     nextButtom.addEventListener('click',function () {
         loadSongTile(nextSong, songList, {autoplay:true});
     })
+
+  }
+
+   function renderUserCurrentPlayList(songList, playlist){
+    currentPlaylistElement.innerHTML = "";
+     console.log(songList);
+     console.log(playlist)
+     if(songList){
+      selectedPlaylist = songList;
+     }
+
+    const selectedPlayList = playlist[songList];
+    console.log('selectedPlayList',selectedPlayList)
+  
+    // userSongList.push(playlist[songList]);
+
+    if(!selectedPlayList || !selectedPlayList?.length ){
+      return;
+    }
+   
+      userCurrentPlayListRender(selectedPlayList);
+  }
+
+  function userCurrentPlayListRender(playlist) {
+    console.log("playlist=>",playlist)
+
+    const h2el = document.createElement('h2');
+    h2el.textContent = "Current Playlist";
+
+     const ulElement = document.createElement("ul");
+     ulElement.className = "songItem";
+     playlist.forEach((el)=>{
+      const liElement = document.createElement("li");
+      const divElement = document.createElement("div");
+      divElement.textContent = `${el.title} - ${el.artist}`;
+      divElement.classList.add("songItemList");
+      liElement.addEventListener("click", function () {
+        console.log(el)
+        // renderUserCurrentPlayList(el, playlist)
+        loadSongTile(el, playlist);
+      });
+      liElement.append(divElement);
+      ulElement.append(liElement);
+     });
+     currentPlaylistElement.append(h2el)
+     currentPlaylistElement.append(ulElement);
+
+  }
+
+ 
+
+
+  function userPlayListRender(playlist) {
+    allPlaylistElement.innerHTML = "";
+    const h2el = document.createElement('h2');
+    h2el.textContent = "All Playlist";
+
+     const ulElement = document.createElement("ul");
+     ulElement.className = "songItem";
+     Object.keys(playlist).forEach((el)=>{
+      const liElement = document.createElement("li");
+      const divElement = document.createElement("div");
+      divElement.textContent = `${el}`;
+      divElement.classList.add("songItemList");
+      liElement.addEventListener("click", function () {
+        renderUserCurrentPlayList(el, playlist)
+      });
+      liElement.append(divElement);
+      ulElement.append(liElement);
+     });
+     allPlaylistElement.append(h2el)
+     allPlaylistElement.append(ulElement);
 
   }
 
@@ -177,4 +267,14 @@ document.addEventListener("DOMContentLoaded", function () {
         renderSong(filterSongs);
     }
   });
+
+  newPlaylistBtnElement.addEventListener("click", function () {
+    const {value} = newPlaylistElement;
+    if(!value){
+      return;
+    }
+    userPlayList[value] = [];
+
+    userPlayListRender(userPlayList);
+  })
 });

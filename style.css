@@ -161,9 +161,10 @@ input:checked + .slider .off
   border: none;
   cursor: pointer;
   font-size: 16px;
+ 
 }
 
-.buttonControls button{
+.buttonControls button, #createPlaylist input{
   outline: none;
   border: none;
 }
@@ -192,6 +193,27 @@ input:checked + .slider .off
 .darkbackgroundColor .cardContainer .songCard {
   background-color: #63696D;
   box-shadow: 0 4px 8px 0 #0673AA, 0 6px 20px 0  #0673AA;
+}
+
+#createPlaylist .buttonControls{
+  background-color: #8F5AFD;
+  padding: 0.85rem 1rem ;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #fff;
+}
+
+#createPlaylist  input{
+  padding: 0.85rem 1rem ;
+  font-size: 18px;
+  width: 50%;
+}
+
+.boxShadow{
+  border: 1px solid #8F5AFD;
+  box-shadow: 0 4px 8px 0 #8F5AFD, 0 6px 20px 0  #8F5AFD;
 }
 
 

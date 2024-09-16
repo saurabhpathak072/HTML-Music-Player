@@ -29,25 +29,33 @@
                 <option value="0">Select Genre</option>
               </select>
             </h2>
-            
           </div>
           <h2>All Songs</h2>
-         <div id="songList" class="songList">
-
-         </div>
+          <div id="songList" class="songList"></div>
         </div>
         <div class="cardContainer">
           <div class="songCard">
             <div id="imageContainer">
-              <img width="100%" id="songImage"  src="https://samplesongs.netlify.app/album-arts/death-bed.jpg" alt="Default" />
+              <img
+                width="100%"
+                id="songImage"
+                src="https://samplesongs.netlify.app/album-arts/death-bed.jpg"
+                alt="Default"
+              />
             </div>
             <h2 id="songName">Death Bed</h2>
             <h3 id="artist">Powfu</h3>
           </div>
           <div id="audioContainer" class="audioContainer">
             <audio controls>
-              <source src="https://samplesongs.netlify.app/Bad%20Liar.mp3" type="audio/ogg" />
-              <source src="https://samplesongs.netlify.app/Bad%20Liar.mp3" type="audio/mpeg" />
+              <source
+                src="https://samplesongs.netlify.app/Bad%20Liar.mp3"
+                type="audio/ogg"
+              />
+              <source
+                src="https://samplesongs.netlify.app/Bad%20Liar.mp3"
+                type="audio/mpeg"
+              />
               Your browser does not support the audio tag.
             </audio>
           </div>
@@ -55,7 +63,20 @@
             Play list Controls
           </div>
         </div>
-        <div class="cardContainer">PlayList</div>
+        <div class="cardContainer boxShadow">
+          <div id="createPlaylist">
+            <input id="newPlaylist" name="newPlaylist" />
+            <button id="newPlaylistBtn" class="buttonControls">
+              <label for="newPlaylist">Create Playlist</label>
+            </button>
+          </div>
+          <div id="currentPlaylist">
+            <!-- <h2>Current Playlist</h2> -->
+          </div>
+          <div id="allPlaylist">
+            <h2>All Playlist</h2>
+          </div>
+        </div>
       </div>
     </main>
     <footer></footer>
